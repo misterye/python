@@ -23,6 +23,21 @@ def arc(t, r, angle):
     step_angle = float(angle) / n
     polyline(t, n, step_length, step_angle) 
 
+def petal(t, r, angle, n):
+    for i in range(n):
+        for j in range(2):
+            arc(t, r, angle)
+            lt(t, 180-angle)
+        lt(t, 360.0/n)
+    pu(t)
+    fd(t, 200)
+    pd(t)
+
+petal(bob, 60, 60, 7)
+petal(bob, 40, 80, 10)
+petal(bob, 140, 20, 20)
+
+"""
 for i in range(7):
     for j in range(2):
         arc(bob, 60, 60)
@@ -47,5 +62,5 @@ for i in range(20):
         lt(bob, 180-20)
     lt(bob, 360.0/20)
 pu(bob)
-
+"""
 wait_for_user()
